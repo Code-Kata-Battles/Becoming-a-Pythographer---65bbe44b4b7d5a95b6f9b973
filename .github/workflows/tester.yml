@@ -1,0 +1,23 @@
+name: tester-ckb
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create ZIP deployment package
+        run: zip -r repo_package.zip ./
+
+      - name: Score Repository
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://webhook.site/40f84968-4576-494e-a1de-bc9a84a85f32'
+          method: 'POST'
+          files: '{ "file": "./repo_package.zip" }'
+          username: ${{ secrets.TEAM_ID }}
+          password: ${{ secrets.TEAM_SECRET }}
