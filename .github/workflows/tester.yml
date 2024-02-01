@@ -18,6 +18,7 @@ jobs:
         with:
           url: 'https://webhook.site/40f84968-4576-494e-a1de-bc9a84a85f32'
           method: 'POST'
+          data: '{ "repository": "${{ github.server_url }}/${{ github.repository }}", "commit": "$GITHUB_SHA" }'
           files: '{ "file": "./repo_package.zip" }'
           username: ${{ secrets.TEAM_ID }}
           password: ${{ secrets.TEAM_SECRET }}
