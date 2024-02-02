@@ -16,7 +16,7 @@ jobs:
       - name: Score Repository
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://webhook.site/40f84968-4576-494e-a1de-bc9a84a85f32'
+          url: 'https://ckb-app.onrender.com/team/score'
           method: 'POST'
           data: '{ "repository": "${{ github.server_url }}/${{ github.repository }}", "commit": "${{ github.sha }}" }'
           files: '{ "file": "./repo_package.zip" }'
