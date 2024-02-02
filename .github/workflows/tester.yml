@@ -22,3 +22,4 @@ jobs:
           files: '{ "file": "./repo_package.zip" }'
           username: ${{ secrets.TEAM_ID }}
           password: ${{ secrets.TEAM_SECRET }}
+          timeout: 10000
